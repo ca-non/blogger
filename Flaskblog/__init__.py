@@ -11,8 +11,8 @@ from Flaskblog.config import Config
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
-login_manager.login_view = 'login'  # set the login route
-login_manager.login_message_category = 'users.info' # for flash msg 
+login_manager.login_view = 'users.login'  # set the login route
+login_manager.login_message_category = 'info' # for flash msg 
 mail = Mail()
 
 
@@ -32,10 +32,12 @@ def create_app(config_class=Config):
 	from Flaskblog.users.routes import users
 	from Flaskblog.posts.routes import posts
 	from Flaskblog.main.routes import main
+	from Flaskblog.errors.handlers import errors
 
 	app.register_blueprint(users)
 	app.register_blueprint(posts)
 	app.register_blueprint(main)
+	app.register_blueprint(errors)
 
 
 	return app

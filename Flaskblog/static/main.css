@@ -4,6 +4,12 @@ body {
   margin-top: 5rem;
 }
 
+.error_div{
+  background-image: url("static/404.png");
+  background-color: blue;
+  color: red;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
